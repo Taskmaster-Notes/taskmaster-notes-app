@@ -7,7 +7,7 @@ const path = require('path');
 //cors
 app.use(cors());
 //middleware
-app.use(express.urlencoded({extended: false})):
+app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 //serve static files
