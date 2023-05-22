@@ -31,3 +31,12 @@ const Note = db.define('Note', {
 });
 
 module.exports = Note;
+
+/* 
+ look up docs to help with asociations
+ change model naming convention
+ task has many notes, notes are only assigned to 1 task 
+ Jest Testing for associations
+ Musician project for reference
+ https://github.com/MultiverseLearningProducts/movie-theater-api/blob/main/models/index.js
+ */
