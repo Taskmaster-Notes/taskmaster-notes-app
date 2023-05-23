@@ -18,6 +18,10 @@ describe("User model", () =>{
         expect(newUser.lastName).toBe("Doe");
         expect(newUser.password).toBe("password")
     })
+    test("can get a user", async () => {
+        const testUser = await User.findByPk(1);
+        expect(testUser.name).toBe("John");
+      })
 
     
 })

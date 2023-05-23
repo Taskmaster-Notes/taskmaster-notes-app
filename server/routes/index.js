@@ -8,4 +8,7 @@ const notes = require('./notes');
 //router.use('/tasks', tasks);
 //router.use('/notes', notes);
 
+//add model relationships
+
+
 module.exports = router;
