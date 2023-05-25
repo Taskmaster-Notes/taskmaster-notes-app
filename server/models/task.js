@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const db = require('../db');
-
+//uncomment 
 // const Task = db.define('task', {
 //     title: {
 //         type: DataTypes.STRING,
