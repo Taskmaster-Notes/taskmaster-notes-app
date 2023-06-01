@@ -1,21 +1,10 @@
-const { DataTypes } = require('sequelize');
-const db = require('../db');
-//to debug
-// const Task = db.define('task', {
-//     title: {
-//         type: DataTypes.STRING,
-//         allowNull: false
-//     },
-//     status: {
-//         type: DataTypes.ENUM('Still Have Time', 'In Progress', 'Overdue'),
-//         allowNull: false
-//     },
-//     due_date: {
-//         type: DataTypes.DATE,
-//         allowNull: false
-//     },
-//     task_id: {
-//         type: DataTypes.INTEGER,
-//         allowNull: false
-//     }
-// });
+const { sequelize, DataTypes } = require('../db');
+
+const Task = sequelize.define('task', {
+    title: DataTypes.STRING,
+    description: DataTypes.STRING,
+    status: DataTypes.ENUM('Still Have Time', 'In Progress', 'Overdue'),
+    due_date: DataTypes.DATE,
+    task_id: DataTypes.INTEGER
+})
+module.exports = {Task};
