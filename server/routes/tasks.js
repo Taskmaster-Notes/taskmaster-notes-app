@@ -38,8 +38,8 @@ router.post('/', async (req,res,next)=>{
 //update Task (PUT)
 router.put('/:id', async (req,res)=> {
     const task = await Task.findByPk(req.params.id);
-    const { title, description, status, due_date, task_id } = req.body;
-    await task.update({ title, description, status, due_date, task_id });
+    const { title, description, status, due_date } = req.body;
+    await task.update({ title, description, status, due_date });
     res.status(201).send(task);
 })
 
