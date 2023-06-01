@@ -1,6 +1,8 @@
 const express  = require('express');
 const router = express.Router();
 const { User } = require('../models/User');
+const { Task } = require('../models/Task');
+const { Note } = require('../models/Note');
 
 //no auth yet
 
@@ -19,7 +21,7 @@ router.get("/:id", async (req, res, next)=>{
         res.sendStatus(404);
     }
     else{
-        res.json(await User.findByPk(req.params.id))
+        res.json(await User.findByPk(req.params.id, { include: [Task,Note] }))
     }
 });
 //POST user

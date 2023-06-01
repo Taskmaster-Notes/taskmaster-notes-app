@@ -25,13 +25,13 @@ router.get("/:id", async (req, res, next)=>{
 
 //add task (POST)
 router.post('/', async (req,res,next)=>{
-    const { title, description, status, due_date, task_id } = req.body;
+    const { title, description, status, due_date, userID } = req.body;
     const newTask = await Task.create({
         title,
         description,
         status,
         due_date,
-        task_id
+        userID
     });
     res.status(201).send({newTask});
 })
@@ -39,8 +39,8 @@ router.post('/', async (req,res,next)=>{
 //update Task (PUT)
 router.put('/:id', async (req,res)=> {
     const task = await Task.findByPk(req.params.id);
-    const { title, description, status, due_date } = req.body;
-    await task.update({ title, description, status, due_date });
+    const { title, description, status, due_date, userID } = req.body;
+    await task.update({ title, description, status, due_date, userID });
     res.status(201).send(task);
 })
 
