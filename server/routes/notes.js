@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const Note = require('../models/Note');
+const { Note } = require('../models/Note');
 
 // Get all notes
-router.get('/notes', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const notes = await Note.findAll();
     res.json(notes);
@@ -14,13 +14,14 @@ router.get('/notes', async (req, res) => {
 });
 
 // Create a new note
-router.post('/notes', async (req, res) => {
-  const { taskId, content } = req.body;
+router.post('/', async (req, res) => {
+  const { title, content, userID } = req.body;
 
   try {
     const newNote = await Note.create({
-      taskId,
-      content
+      title,
+      content,
+      userID
     });
 
     res.status(201).json(newNote);
@@ -31,7 +32,7 @@ router.post('/notes', async (req, res) => {
 });
 
 // Update a note
-router.put('/notes/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { content } = req.body;
 
@@ -54,7 +55,7 @@ router.put('/notes/:id', async (req, res) => {
 });
 
 // Delete a note
-router.delete('/notes/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   const { id } = req.params;
 
   try {

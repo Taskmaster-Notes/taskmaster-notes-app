@@ -1,6 +1,6 @@
 {
   "name": "taskmaster-notes-app",
-  "type": "module",
+  "type": "Commonjs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -37,5 +37,6 @@
     "sqlite3": "^5.1.6",
     "supertest": "^6.3.3"
   },
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {}
 }

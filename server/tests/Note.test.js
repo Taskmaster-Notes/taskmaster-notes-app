@@ -14,10 +14,12 @@ describe('GET /notes', () => {
         const newTask = await Note.create({
             title: "Example Title",
             content: "This is an example description",
+            userID: 1
         })
         expect(newTask).toBeInstanceOf(Note);
         expect(newTask.title).toBe("Example Title");
         expect(newTask.content).toBe("This is an example description");
+        expect(newTask.userID).toBe(1);
     })
 })
 
