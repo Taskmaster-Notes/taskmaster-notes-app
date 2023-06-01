@@ -20,7 +20,7 @@ describe("User model", () =>{
     })
     test("can get a user", async () => {
         const testUser = await User.findByPk(1);
-        expect(testUser.name).toBe("John");
+        expect(testUser.firstName).toBe("John");
       })
 
     
