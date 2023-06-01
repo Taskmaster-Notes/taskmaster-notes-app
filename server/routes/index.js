@@ -7,7 +7,7 @@ const users = require('./users');
 //uncomment later
 router.use('/users',users);
 router.use('/tasks', tasks);
-//router.use('/notes', notes);
+router.use('/notes', notes);
 
 //add model relationships
 
