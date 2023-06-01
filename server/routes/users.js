@@ -47,5 +47,19 @@ router.delete("/:id", async (req, res) => {
     res.sendStatus(204);
   });
 
+//get a specific user's tasks
+router.get("/:id/tasks", async (req, res) => {
+    const currentUser = await User.findByPk(req.params.id);
+    const userTasks = await currentUser.getTasks()
+    res.json(userTasks);
+});
+
+//get a specific user's notes
+router.get("/:id/notes", async (req, res) => {
+    const currentUser = await User.findByPk(req.params.id);
+    const userNotes = await currentUser.getNotes()
+    res.json(userNotes);
+});
+
 module.exports = router;
   

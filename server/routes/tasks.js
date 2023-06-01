@@ -1,4 +1,5 @@
 const express = require('express');
+const { User } = require('../models');
 const router = express.Router();
 const { Task } = require('../models/Task');
 
@@ -43,10 +44,11 @@ router.put('/:id', async (req,res)=> {
     res.status(201).send(task);
 })
 
+//delete a task by task ID
 router.delete("/:id", async (req, res) => {
     const taskToDelete = await Task.findByPk(req.params.id);
     await taskToDelete.destroy();
     res.sendStatus(204);
-  });
+  })
 
 module.exports = router;
