@@ -1,0 +1,17 @@
+Pius's feedback on main branch as of 6/7, afternoon.
+===
+
+Requirements:
+- Front end client runs, but backend doesn't start, has errors
+- What's the deployment plan, for at least CD?
+- Front end doesn't access data yet -- doesn't have to be complex/pretty but should be usable
+
+Logic:
+- Backend server has errors starting Sequelize, with a "duplicate column name error" for "userId" -- your models don't need that "userId" property to directly link a Task or Note with a user, because Sequelize will automatically link them when you make associations.  So it looks like that error comes from Sequelize trying to duplicate that foreign key. (see suggested edits to models)
+
+Testing:
+- What API endpoints can be tested?  Auth not implemented, so just use Postman?
+- Is there starting seed data?
+
+Style:
+- Recommend README document details on API, deployed site, local install

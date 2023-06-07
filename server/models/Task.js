@@ -5,6 +5,6 @@ const Task = sequelize.define('task', {
     description: DataTypes.STRING,
     status: DataTypes.ENUM('Still Have Time', 'In Progress', 'Overdue'),
     due_date: DataTypes.DATE,
-    userID: DataTypes.INTEGER
+    // userID: DataTypes.INTEGER
 })
 module.exports = {Task};

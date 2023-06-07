@@ -7,7 +7,7 @@ const { sequelize, DataTypes } = require('../db');
 const Note = sequelize.define('Note', {
     title: DataTypes.STRING,
     content: DataTypes.STRING,
-    userID: DataTypes.INTEGER,
+    // userID: DataTypes.INTEGER,
     createdAt: DataTypes.DATE,
     updatedAt:  DataTypes.DATE,
   });
