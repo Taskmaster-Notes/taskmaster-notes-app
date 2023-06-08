@@ -1,4 +1,4 @@
-const { User } = require('../models/index');
+const { User } = require('../models/User');
 const { sequelize } = require('../db');
 
 describe("User model", () =>{

@@ -1,4 +1,4 @@
-const { Task } = require('../models/index');
+const { Task } = require('../models/Task');
 const { sequelize } = require('../db');
 
 describe("Task model", () =>{
