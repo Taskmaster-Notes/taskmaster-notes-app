@@ -1,7 +1,14 @@
 import React from "react";
+import { Login } from "./Login";
+import { Dashboard } from "./Dashboard";
+import { Navbar } from "./Navbar";
 
 export const App = () => {
     return (
-        <h1>Hello World</h1>
+        <>
+        <Navbar />
+        <Login />
+        {/* <Dashboard /> */}
+        </>
     );
 }
