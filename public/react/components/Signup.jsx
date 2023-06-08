@@ -4,7 +4,7 @@ import img from "../images/loginImage.svg";
 import timeManagement from "../images/timeManagement.svg";
 
 
-export const Login = () => {
+export const Signup = () => {
     return (
         <>
         {/* <Navbar /> */}
@@ -23,8 +23,8 @@ export const Login = () => {
                 <div style={styles.container}>
                     <div style={styles.container1}>
                         <div style={styles.loginTitleContainer}>
-                            <h1 style={{ color: "white", fontFamily: "sans-serif", paddingTop: "10%" }}>Welcome back!</h1>
-                            <h2 style={styles.loginTitle}>Please Login to your account</h2>
+                            <h1 style={{ color: "white", fontFamily: "sans-serif", paddingTop: "10%" }}>Welcome!</h1>
+                            <h2 style={styles.loginTitle}>Time to join Taskmaster</h2>
                         </div>
                         <div>
                         </div>
@@ -32,16 +32,12 @@ export const Login = () => {
                             <input style={styles.input} type='text' placeholder='USERNAME' />
                             <input style={styles.input} type='text' placeholder='PASSWORD' />
                         </div>
-                        <div style={styles.subTextContainer}>
-                            <p style={styles.subtext}>forgot password?</p>
-                            <p></p>
-                        </div>
                         <div style={styles.loginBtnContainer}>
                             <button style={styles.loginButton}>LOGIN</button>
                         </div>
                         <div>
-                            <h2 style={styles.accountsubtext} >Don't have an account? 
-                            <a style={styles.newAccount} href='/Signup'> Create a Taskmaster Account</a>
+                            <h2 style={styles.accountsubtext} >Already have an Account? 
+                            <a style={styles.newAccount} href='/login'> Login</a>
                             </h2>
                         </div>
                     </div>
