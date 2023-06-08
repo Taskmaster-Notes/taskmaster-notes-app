@@ -4,26 +4,16 @@ import img from "../images/loginImage.svg";
 import timeManagement from "../images/timeManagement.svg";
 
 
-export const Signup = () => {
+export const Signup = ({displayLogin, setDisplayLogin}) => {
     return (
         <>
         {/* <Navbar /> */}
         <div style={styles.background}>
             <div style={styles.loginContainer}>
-                <div style={styles.loginHeaderContainer}>
-                    <div style={styles.loginHeaderTitleContainer}>
-                    {/* <img width="64" height="64" src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-checklist-stay-at-home-flatart-icons-outline-flatarticons.png" alt="external-checklist-stay-at-home-flatart-icons-outline-flatarticons"/> */}
-                    <img src={timeManagement} width="48vw" />
-                    <h2>Taskmaster </h2>
-                    </div>
-                    <div>
-
-                    </div>
-                </div>
                 <div style={styles.container}>
                     <div style={styles.container1}>
                         <div style={styles.loginTitleContainer}>
-                            <h1 style={{ color: "white", fontFamily: "sans-serif", paddingTop: "10%" }}>Welcome!</h1>
+                            <h1 style={{ color: "grey", fontFamily: "sans-serif", paddingTop: "10%" }}>Welcome!</h1>
                             <h2 style={styles.loginTitle}>Time to join Taskmaster</h2>
                         </div>
                         <div>
@@ -37,7 +27,7 @@ export const Signup = () => {
                         </div>
                         <div>
                             <h2 style={styles.accountsubtext} >Already have an Account? 
-                            <a style={styles.newAccount} href='/login'> Login</a>
+                            <button style={styles.newAccount} onClick={() => setDisplayLogin(!displayLogin)} > Login</button>
                             </h2>
                         </div>
                     </div>
@@ -161,6 +151,7 @@ const styles = {
     newAccount: {
         color: "#39993A",
         textDecoration: "none",
+        border: "none",
     },
     accountsubtext: {
         color: "#393e46",

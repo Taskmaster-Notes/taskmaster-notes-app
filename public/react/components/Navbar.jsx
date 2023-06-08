@@ -6,12 +6,14 @@ export const Navbar = () => {
     return (
         <>
             <div style={styles.navbarContainer}>
+                <a style={{ textDecoration: "none"}} href='/'>
                 <div style={styles.navbarTitleContainer}>
                 <img src={timeManagement} width="48vw" />
                 <h1 style={styles.navbarTitle}>Taskmaster
                 </h1> 
                 {/* <img width="48" height="45" src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/external-checklist-stay-at-home-flatart-icons-outline-flatarticons.png" alt="external-checklist-stay-at-home-flatart-icons-outline-flatarticons"/> */}
                 </div>
+                </a>
                 <div style={styles.iconContainer}>
                     <div style={styles.icons}>
                         <img style={styles.icon} width="32" height="32" src="https://img.icons8.com/ios/32/home--v1.png" alt="home--v1"/>
@@ -22,6 +24,9 @@ export const Navbar = () => {
                     </div>
                     <div style={styles.icons}>
                     <img style={styles.icon} width="32" height="32" src="https://img.icons8.com/ios/32/calendar--v1.png" alt="calendar--v1"/>
+                    </div>
+                    <div style={styles.icons}>
+                    <img style={styles.icon} width="32" height="32" src="https://img.icons8.com/ios/50/login-rounded-right--v1.png" alt="login-rounded-right--v1"/>
                     </div>
                 </div>
             </div>

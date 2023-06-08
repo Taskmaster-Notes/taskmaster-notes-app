@@ -1,25 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import { Navbar } from './Navbar';
 import img from "../images/loginImage.svg";
 import timeManagement from "../images/timeManagement.svg";
 
 
-export const Login = () => {
+export const Login = ({displayLogin, setDisplayLogin}) => {
+
+    
+
     return (
         <>
         {/* <Navbar /> */}
         <div style={styles.background}>
             <div style={styles.loginContainer}>
-                <div style={styles.loginHeaderContainer}>
-                    <div style={styles.loginHeaderTitleContainer}>
-                    {/* <img width="64" height="64" src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-checklist-stay-at-home-flatart-icons-outline-flatarticons.png" alt="external-checklist-stay-at-home-flatart-icons-outline-flatarticons"/> */}
-                    <img src={timeManagement} width="48vw" />
-                    <h2>Taskmaster </h2>
-                    </div>
-                    <div>
-
-                    </div>
-                </div>
                 <div style={styles.container}>
                     <div style={styles.container1}>
                         <div style={styles.loginTitleContainer}>
@@ -41,7 +35,7 @@ export const Login = () => {
                         </div>
                         <div>
                             <h2 style={styles.accountsubtext} >Don't have an account? 
-                            <a style={styles.newAccount} href='/Signup'> Create a Taskmaster Account</a>
+                            <button style={styles.newAccount} onClick={() => setDisplayLogin(!displayLogin)}  > Create a Taskmaster Account</button>
                             </h2>
                         </div>
                     </div>
@@ -165,6 +159,7 @@ const styles = {
     newAccount: {
         color: "#39993A",
         textDecoration: "none",
+        border: "none",
     },
     accountsubtext: {
         color: "#393e46",
