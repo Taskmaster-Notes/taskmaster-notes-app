@@ -2,10 +2,10 @@
   "name": "taskmaster-notes-app",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
+  "description": "#### What is Taskmaster Notes?  * Taskmaster Notes is a place to keep track of your notes and keep up-to-date on your tasks for work, school, or whatever your task is for! * Check out the guidelines below to get started using Taskmaster Notes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node server/server.js",
     "dev": "nodemon server/server.js",
     "client-dev": "parcel public/index.html --open"
@@ -35,6 +35,9 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2",
     "sequelize": "^6.31.1",
-    "sqlite3": "^5.1.6"
-  }
+    "sqlite3": "^5.1.6",
+    "supertest": "^6.3.3"
+  },
+  "keywords": [],
+  "devDependencies": {}
 }

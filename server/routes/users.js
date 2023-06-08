@@ -1,6 +1,8 @@
 const express  = require('express');
 const router = express.Router();
 const { User } = require('../models/User');
+const { Task } = require('../models/Task');
+const { Note } = require('../models/Note');
 
 //no auth yet
 
@@ -19,7 +21,7 @@ router.get("/:id", async (req, res, next)=>{
         res.sendStatus(404);
     }
     else{
-        res.json(await User.findByPk(req.params.id))
+        res.json(await User.findByPk(req.params.id, { include: [Task,Note] }))
     }
 });
 //POST user
@@ -46,6 +48,20 @@ router.delete("/:id", async (req, res) => {
     await user.destroy();
     res.sendStatus(204);
   });
+
+//get a specific user's tasks
+router.get("/:id/tasks", async (req, res) => {
+    const currentUser = await User.findByPk(req.params.id);
+    const userTasks = await currentUser.getTasks()
+    res.json(userTasks);
+});
+
+//get a specific user's notes
+router.get("/:id/notes", async (req, res) => {
+    const currentUser = await User.findByPk(req.params.id);
+    const userNotes = await currentUser.getNotes()
+    res.json(userNotes);
+});
 
 module.exports = router;
   
