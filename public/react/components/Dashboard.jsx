@@ -34,15 +34,41 @@ export const Dashboard = () => {
                         </div>
                     </div>
                     <div style={styles.statusbarContainer}>
-                        <div>
-                        <h3 style={styles.yellowStatus}>Day of</h3>
+                        <div style={{display: "flex", backgroundColor: "#D3E4EF", borderRadius: "15px"}}>
+                        <div 
+                                    style={{height: "1px",
+                                    width: "1px",
+                                    backgroundColor: "#5B96BD",
+                                    paddingTop: "5px",
+                                    paddingRight: "5px",
+                                    marginRight: "5px",
+                                    margin: "8px",
+                                    border: "1px solid #5B96BD",
+                                    borderRadius: "20px"
+                                    }}
+                                    >
+                                </div>
+                        <h3 style={styles.yellowStatus}>Today</h3>
                         </div>
                         <div>
                             <h3 style={{ fontSize: "23px"}}></h3>
                         </div>
                     </div>
                     <div style={styles.statusbarContainer}>
-                        <div>
+                        <div style={{display: "flex", backgroundColor: "#FFCED1", borderRadius: "15px"}}>
+                        <div 
+                                    style={{height: "1px",
+                                    width: "1px",
+                                    backgroundColor: "#f06a73",
+                                    paddingTop: "5px",
+                                    paddingRight: "5px",
+                                    marginRight: "5px",
+                                    margin: "8px",
+                                    border: "1px solid #f06a73",
+                                    borderRadius: "20px"
+                                    }}
+                                    >
+                                </div>
                             <h3 style={styles.redStatus}>Overdue</h3>
                         </div>
                         <div>
@@ -186,7 +212,7 @@ const styles = {
         paddingLeft: "1vw",
     },
     newTaskGreenContainer: {
-        backgroundColor: "#DBEDDB",
+        backgroundColor: "#E7F5E7",
         paddingLeft: "1vw",
     },
     newTaskYellowContainer: {
