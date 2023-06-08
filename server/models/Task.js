@@ -1,10 +1,9 @@
 const { sequelize, DataTypes } = require('../db');
 
-const Task = sequelize.define('task', {
+const Task = sequelize.define('Task', {
     title: DataTypes.STRING,
     description: DataTypes.STRING,
     status: DataTypes.ENUM('Still Have Time', 'In Progress', 'Overdue'),
-    due_date: DataTypes.DATE,
-    userID: DataTypes.INTEGER
+    due_date: DataTypes.DATE
 })
 module.exports = {Task};
