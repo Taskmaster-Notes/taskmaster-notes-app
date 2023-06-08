@@ -34,13 +34,12 @@ const styles = {
         display: "flex",
         justifyContent: "space-between",
         boxShadow: "-10px -10px 15px rgba(255,255,255,0.5), 10px 10px 15px rgba(70,70,70,0.12)",
-        backgroundColor: "#0D0D0D",
+        backgroundColor: "#F0FFF0",
         height: "8vh",
         paddingTop: "2vh",
     },
     navbarTitleContainer: {
         display: "flex",
-        // boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset",
         height: "5.5vh",
         paddingTop: "1vh",
         paddingLeft: "10px",
@@ -62,7 +61,7 @@ const styles = {
         justifyContent: "space-between",
     },
     icons: {
-        // boxShadow: "-10px -10px 15px rgba(255,255,255,0.5), 10px 10px 15px rgba(70,70,70,0.12)",
+        boxShadow: "-10px -10px 15px rgba(255,255,255,0.5), 10px 10px 15px rgba(70,70,70,0.12)",
         marginRight: "2vh",
         height: "4vh",
         width: "5vw",
@@ -72,9 +71,9 @@ const styles = {
         paddingRight: "1vw",
         paddingBottom: "1vh",
         color: "white",
-        backgroundColor: "white",
+        backgroundColor: "#F0FFF0",
         borderRadius: "5px",
-        border: "solid 1px grey"
+
     },
     icon: {
         alignItems: "center",

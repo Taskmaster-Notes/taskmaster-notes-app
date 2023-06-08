@@ -60,13 +60,13 @@ export const Signup = () => {
 
 const styles = {
     background: {
-        backgroundColor: "#0D0D0D",
+        backgroundColor: "#F0FFF0",
     },
     backgroundTwo: {
-        backgroundColor: "#dde1e7",
+        backgroundColor: "#F0FFF0",
     },
     loginContainer: {
-        backgroundColor: "#0D0D0D",
+        backgroundColor: "#F0FFF0",
         margin: "auto",
         width: "90%",
         height: "80%",
@@ -85,14 +85,14 @@ const styles = {
         paddingTop: "2%"
     },
     loginTitleContainer: {
-        backgroundColor: "#0D0D0D",
+        backgroundColor: "#F0FFF0",
         width: "100%",
         textAlign: "center",
         marginTop: "3.5vh",
         paddingBottom: "15%"
     },
     loginTitle: {
-        backgroundColor: "#0D0D0D",
+        backgroundColor: "#F0FFF0",
         color: "#393e46",
         fontFamily: "sans-serif",
         paddingTop: "2%",
@@ -106,7 +106,7 @@ const styles = {
         marginTop: "1vh"
     },
     input: {
-        backgroundColor: "#f9f9f9",
+        backgroundColor: "#CCCCCC",
         color: "#8F8FA1",
         fontWeight: "bold",
         marginTop: "1vh",
@@ -115,7 +115,7 @@ const styles = {
         borderRadius: "5px",
     },
     loginBtnContainer: {
-        backgroundColor: "#0D0D0D",
+        backgroundColor: "#F0FFF0",
         margin: "auto",
         textAlign: "center",
         marginTop: "5%",
