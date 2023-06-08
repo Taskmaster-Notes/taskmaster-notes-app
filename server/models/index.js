@@ -3,8 +3,8 @@ const { User } = require('./User');
 const { Note } = require('./Note');
 const { Task } = require('./Task');
 
-Task.belongsTo(User, {foreignKey: 'userID'});
-Note.belongsTo(User, {foreignKey: 'userID'});
+Task.belongsTo(User);
+Note.belongsTo(User);
 
 User.hasMany(Task);
 User.hasMany(Note);
