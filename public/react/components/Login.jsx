@@ -6,8 +6,8 @@ import timeManagement from "../images/timeManagement.svg";
 
 
 export const Login = ({displayLogin, setDisplayLogin}) => {
-
-    
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
     return (
         <>
@@ -23,8 +23,8 @@ export const Login = ({displayLogin, setDisplayLogin}) => {
                         <div>
                         </div>
                         <div style={styles.inputContainer}>
-                            <input style={styles.input} type='text' placeholder='USERNAME' />
-                            <input style={styles.input} type='text' placeholder='PASSWORD' />
+                            <input style={styles.input} type='text' placeholder='USERNAME' value={username} onChange={(e) => setUsername(e.target.value)} />
+                            <input style={styles.input} type='text' placeholder='PASSWORD' value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
                         <div style={styles.subTextContainer}>
                             <p style={styles.subtext}>forgot password?</p>

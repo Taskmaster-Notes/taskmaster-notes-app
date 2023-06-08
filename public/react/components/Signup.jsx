@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar } from './Navbar';
 import img from "../images/loginImage.svg";
 import timeManagement from "../images/timeManagement.svg";
 
 
 export const Signup = ({displayLogin, setDisplayLogin}) => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
     return (
         <>
         {/* <Navbar /> */}
@@ -19,8 +22,8 @@ export const Signup = ({displayLogin, setDisplayLogin}) => {
                         <div>
                         </div>
                         <div style={styles.inputContainer}>
-                            <input style={styles.input} type='text' placeholder='USERNAME' />
-                            <input style={styles.input} type='text' placeholder='PASSWORD' />
+                            <input style={styles.input} type='text' placeholder='USERNAME' value={username} onChange={(e) => setUsername(e.target.value)} />
+                            <input style={styles.input} type='text' placeholder='PASSWORD' value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
                         <div style={styles.loginBtnContainer}>
                             <button style={styles.loginButton}>LOGIN</button>

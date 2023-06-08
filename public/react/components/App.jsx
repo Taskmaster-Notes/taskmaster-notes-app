@@ -11,6 +11,7 @@ export const App = () => {
         <>
         <Navbar />
         {displayIntro ? <Intro />: null}
+        {!displayIntro ? <Dashboard /> : null}
         {/* <Dashboard /> */}
         </>
     );
