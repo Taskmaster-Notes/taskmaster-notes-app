@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Note } = require('../models/Note');
+const { Note } = require('../models/index');
 
 // Get all notes
 router.get('/', async (req, res) => {
@@ -13,17 +13,33 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Create a new note
-router.post('/', async (req, res) => {
-  const { title, content, userID } = req.body;
+// //add task (POST)
+// router.post('/user/:id', async (req,res,next)=>{
+//   const { title, description, status, due_date } = req.body;
+//   const id = req.params.id;
+//   const newTask = await Task.create({
+//       title,
+//       description,
+//       status,
+//       due_date,
+//       UserId: id
+//   });
+//   currentUser = User.findByPk(id);
+//   //currentUser.addTask(newTask);
+//   res.status(201).send({newTask});
+// })
 
+// Create a new note
+router.post('/user/:id', async (req, res) => {
+  const { title, content } = req.body;
+  const id = req.params.id;
   try {
     const newNote = await Note.create({
       title,
       content,
-      userID
+      UserId: id
     });
-
+    //currentUser = User.findByPk(id);
     res.status(201).json(newNote);
   } catch (error) {
     console.error(error);

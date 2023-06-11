@@ -1,7 +1,6 @@
 const express = require('express');
-const { User } = require('../models');
 const router = express.Router();
-const { Task } = require('../models/Task');
+const { Task, User } = require('../models/index');
 
 // get tasks
 router.get("/", async (req, res, next)=>{
@@ -24,14 +23,15 @@ router.get("/:id", async (req, res, next)=>{
 });
 
 //add task (POST)
-router.post('/', async (req,res,next)=>{
-    const { title, description, status, due_date, userID } = req.body;
+router.post('/user/:id', async (req,res,next)=>{
+    const { title, description, status, due_date } = req.body;
+    const id = req.params.id;
     const newTask = await Task.create({
         title,
         description,
         status,
         due_date,
-        userID
+        UserId: id
     });
     res.status(201).send({newTask});
 })
@@ -39,8 +39,8 @@ router.post('/', async (req,res,next)=>{
 //update Task (PUT)
 router.put('/:id', async (req,res)=> {
     const task = await Task.findByPk(req.params.id);
-    const { title, description, status, due_date, userID } = req.body;
-    await task.update({ title, description, status, due_date, userID });
+    const { title, description, status, due_date } = req.body;
+    await task.update({ title, description, status, due_date });
     res.status(201).send(task);
 })
 

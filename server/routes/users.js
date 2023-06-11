@@ -1,8 +1,7 @@
 const express  = require('express');
 const router = express.Router();
-const { User } = require('../models/User');
-const { Task } = require('../models/Task');
-const { Note } = require('../models/Note');
+const { User, Task, Note } = require('../models/index');
+
 
 //no auth yet
 
@@ -15,13 +14,27 @@ router.get("/", async (req, res, next)=>{
         res.json(await User.findAll())
     }
 })
-//GET one user
+//GET one user by id
 router.get("/:id", async (req, res, next)=>{
     if(!await User.findByPk(req.params.id)){
         res.sendStatus(404);
     }
     else{
         res.json(await User.findByPk(req.params.id, { include: [Task,Note] }))
+    }
+});
+//GET one user by name
+router.get("/username/:username", async (req, res, next)=>{
+    const userToFind = await User.findOne({where: {username: req.params.username}})
+    console.log(userToFind)
+    if(!userToFind) 
+            res.sendStatus(404);
+        
+
+     else{ 
+        res.json(await User.findAll({
+            where: {username: req.params.username}, include: [Task,Note] 
+        }))
     }
 });
 //POST user
@@ -35,6 +48,10 @@ router.post('/', async (req,res,next)=>{
         });
         res.status(201).send({newUser});
     })
+//POST user with note
+// router.post('/:id/task', async (req,res,next) => {
+
+// })
 //PUT user
 router.put('/:id', async (req,res)=> {
     const user = await User.findByPk(req.params.id);

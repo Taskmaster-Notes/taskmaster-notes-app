@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node server/server.js",
+    "start": "node server/server.js && parcel public/index.html --open",
     "dev": "nodemon server/server.js",
     "client-dev": "parcel public/index.html --open"
   },

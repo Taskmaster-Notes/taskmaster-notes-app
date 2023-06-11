@@ -1,7 +1,7 @@
 const request = require('supertest');
 const express = require('express');
 const app = express();
-const { Note } = require('../models/Note');
+const { Note } = require('../models/index');
 const { sequelize } = require('../db');
 
 
@@ -13,13 +13,12 @@ describe('GET /notes', () => {
         test("can create Note", async () =>{
         const newTask = await Note.create({
             title: "Example Title",
-            content: "This is an example description",
-            userID: 1
+            content: "This is an example description"
         })
         expect(newTask).toBeInstanceOf(Note);
         expect(newTask.title).toBe("Example Title");
         expect(newTask.content).toBe("This is an example description");
-        expect(newTask.userID).toBe(1);
+    
     })
 })
 
