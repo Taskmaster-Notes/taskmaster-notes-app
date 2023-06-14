@@ -5,6 +5,7 @@ import { NewTask } from './newTask';
 
 export const Dashboard = ({user, setUser}) => {
     const [show, setShow] = useState(false);
+    const {Tasks} = user;
     console.log(user);
 
     return (
@@ -82,41 +83,26 @@ export const Dashboard = ({user, setUser}) => {
                 </div>
                 <div style={styles.tasksContainer}>
                     <div>
-                        <SingleTask containerStyle={styles.greenTaskContainer} />
-                        <div style={styles.greenTaskContainer}>
-                            <h4>Trello Import</h4>
-                            <p>due - 8-20-23</p>
-                        </div>
-                        <div style={styles.greenTaskContainer}>
-                            <h4>SQL Reports</h4>
-                            <p>due - 8-20-23</p>
-                        </div>
-                        <div style={styles.greenTaskContainer}>
-                            <h4>Debug Slow Queries</h4>
-                            <p>due - 8-20-23</p>
-                        </div>
+                    {Tasks.map((task) => {
+                        return task.status === 'Still Have Time' ?  <SingleTask task={task} containerStyle={styles.greenTaskContainer} /> : null}
+                    )}
                         <div style={styles.newTaskGreenContainer}>
                             <button style={styles.newGreenTask} onClick={() => setShow(!show)}>+ New</button>
                         </div>
                     </div>
                     <div>
-                        <div style={styles.yellowTaskContainer}>
-                            <h4>Add Authentication Options</h4>
-                            <p>due - 8-20-23</p>
-                        </div>
-                        <div style={styles.yellowTaskContainer}>
-                            <h4>Improve Third Party Integrations</h4>
-                            <p>due - 8-20-23</p>
-                        </div>
+                    {Tasks.map((task) => {
+                        return task.status === 'In Progress' ?  <SingleTask task={task} containerStyle={styles.yellowTaskContainer} /> : null}
+                    )}
                         <div style={styles.newTaskContainer}>
                             <button style={styles.newYellowTask} onClick={() => setShow(!show)}>+ New</button>
                         </div>
                     </div>
                     <div>
-                        <div style={styles.redTaskContainer}>
-                            <h4>Deploy Project</h4>
-                            <p>due - 8-20-23</p>
-                        </div>
+                    {Tasks.map((task) => {
+                        return task.status === 'Overdue' ?  <SingleTask task={task} containerStyle={styles.redTaskContainer} /> : null}
+                    )}
+
                         <div style={styles.newTaskContainer}>
                             <button style={styles.newRedTask} onClick={() => setShow(!show)}>+ New</button>
                         </div>

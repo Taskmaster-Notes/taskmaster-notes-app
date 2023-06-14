@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
 
-export const SingleTask = ({ containerStyle }) => {
+export const SingleTask = ({ containerStyle, task }) => {
     return (
         <>
             <div style={containerStyle}>
-                <h4>Rewrite Query Caching Logic</h4>
-                <p>due - 8-20-23</p>
+                <h4>{task.title}</h4>
+                <p>{task.description}</p>
+                <p>{task.due_date}</p>
+                <p>{task.status}</p>
             </div>
         </>
     )
