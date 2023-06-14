@@ -2,7 +2,12 @@ import React from 'react';
 import timeManagement from "../images/timeManagement.svg";
 import pages from "../images/pages.svg";
 
-export const Navbar = () => {
+export const Navbar = ({ user, setUser }) => {
+    const handleLogout = () => {
+        localStorage.clear();
+        location.href= "http://localhost:1234";
+        setUser();
+    }
     return (
         <>
             <div style={styles.navbarContainer}>
@@ -25,9 +30,9 @@ export const Navbar = () => {
                     <div style={styles.icons}>
                     <img style={styles.icon} width="32" height="32" src="https://img.icons8.com/ios/32/calendar--v1.png" alt="calendar--v1"/>
                     </div>
-                    <div style={styles.icons}>
+                    <button style={styles.icons} onClick={() => handleLogout()}>
                     <img style={styles.icon} width="32" height="32" src="https://img.icons8.com/ios/50/login-rounded-right--v1.png" alt="login-rounded-right--v1"/>
-                    </div>
+                    </button>
                 </div>
             </div>
         </>

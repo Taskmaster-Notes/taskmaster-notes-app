@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Navbar } from './Navbar';
 import img from "../images/loginImage.svg";
 import timeManagement from "../images/timeManagement.svg";
 
 
-export const Login = ({displayLogin, setDisplayLogin}) => {
+export const Login = ({displayLogin, setDisplayLogin, user, setUser, setDisplayIntro, displayIntro}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        const url = 'http://localhost:3000/api/users/username/';
+        const response = await fetch(url + username);
+        const data = await response.json();
+        console.log(data[0]);
+        setUser(data[0]);
+        localStorage.setItem("username", username);
+        localStorage.setItem("id", user.id);
+        setDisplayIntro(!displayIntro);
+    }
 
     return (
         <>
@@ -15,7 +27,7 @@ export const Login = ({displayLogin, setDisplayLogin}) => {
         <div style={styles.background}>
             <div style={styles.loginContainer}>
                 <div style={styles.container}>
-                    <div style={styles.container1}>
+                    <form style={styles.container1} onSubmit={handleLogin}>
                         <div style={styles.loginTitleContainer}>
                             <h1 style={{ color: "white", fontFamily: "sans-serif", paddingTop: "10%" }}>Welcome back!</h1>
                             <h2 style={styles.loginTitle}>Please Login to your account</h2>
@@ -31,14 +43,14 @@ export const Login = ({displayLogin, setDisplayLogin}) => {
                             <p></p>
                         </div>
                         <div style={styles.loginBtnContainer}>
-                            <button style={styles.loginButton}>LOGIN</button>
+                            <button style={styles.loginButton} type="submit">LOGIN</button>
                         </div>
                         <div>
                             <h2 style={styles.accountsubtext} >Don't have an account? 
                             <button style={styles.newAccount} onClick={() => setDisplayLogin(!displayLogin)}  > Create a Taskmaster Account</button>
                             </h2>
                         </div>
-                    </div>
+                    </form>
                     <div style={styles.container2}>
                         <div style={styles.imageContainer}>
                         <img src={img} width="90%" height="450vh" />

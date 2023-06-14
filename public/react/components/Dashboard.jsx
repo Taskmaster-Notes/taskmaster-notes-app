@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar } from './Navbar';
+import { SingleTask } from './SingleTask';
+import { NewTask } from './newTask';
 
-export const Dashboard = () => {
+export const Dashboard = ({user, setUser}) => {
+    const [show, setShow] = useState(false);
+    console.log(user);
+
     return (
         <>
-            <Navbar />
             <div style={styles.dashboardContainer}>
-                <h1 style={{color: "grey", fontFamily: "sans-serif"}}>Hi, Emil De'leon</h1>
+                <h1 style={{color: "grey", fontFamily: "sans-serif"}}>Hi, {user.firstName} {user.lastName}</h1>
                 <div style={styles.progressBarContainer}>
                     <div style={styles.statusbarContainer}>
                         <div>
@@ -78,10 +82,7 @@ export const Dashboard = () => {
                 </div>
                 <div style={styles.tasksContainer}>
                     <div>
-                        <div style={styles.greenTaskContainer}>
-                            <h4>Rewrite Query Caching Logic</h4>
-                            <p>due - 8-20-23</p>
-                        </div>
+                        <SingleTask containerStyle={styles.greenTaskContainer} />
                         <div style={styles.greenTaskContainer}>
                             <h4>Trello Import</h4>
                             <p>due - 8-20-23</p>
@@ -95,7 +96,7 @@ export const Dashboard = () => {
                             <p>due - 8-20-23</p>
                         </div>
                         <div style={styles.newTaskGreenContainer}>
-                            <p style={styles.newGreenTask}>+ New</p>
+                            <button style={styles.newGreenTask} onClick={() => setShow(!show)}>+ New</button>
                         </div>
                     </div>
                     <div>
@@ -108,7 +109,7 @@ export const Dashboard = () => {
                             <p>due - 8-20-23</p>
                         </div>
                         <div style={styles.newTaskContainer}>
-                            <p style={styles.newYellowTask}>+ New</p>
+                            <button style={styles.newYellowTask} onClick={() => setShow(!show)}>+ New</button>
                         </div>
                     </div>
                     <div>
@@ -117,11 +118,12 @@ export const Dashboard = () => {
                             <p>due - 8-20-23</p>
                         </div>
                         <div style={styles.newTaskContainer}>
-                            <p style={styles.newRedTask}>+ New</p>
+                            <button style={styles.newRedTask} onClick={() => setShow(!show)}>+ New</button>
                         </div>
                     </div>
                 </div>
             </div>
+            {show ? <NewTask setShow={setShow} show={show} /> : null}
         </>
     )
 }
@@ -231,6 +233,7 @@ const styles = {
         height: "10vh",
         paddingTop: "2%",
         paddingLeft: "2%",
+        border: "none",
     },
     newGreenTask: {
         fontWeight: "bold",
@@ -244,6 +247,7 @@ const styles = {
         height: "10vh",
         paddingTop: "2%",
         paddingLeft: "2%",
+        border: "none",
     },
     newRedTask: {
         fontWeight: "bold",
@@ -257,5 +261,6 @@ const styles = {
         height: "10vh",
         paddingTop: "2%",
         paddingLeft: "2%",
+        border: "none",
     }
 }

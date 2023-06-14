@@ -4,9 +4,39 @@ import img from "../images/loginImage.svg";
 import timeManagement from "../images/timeManagement.svg";
 
 
-export const Signup = ({displayLogin, setDisplayLogin}) => {
+export const Signup = ({displayLogin, setDisplayLogin, user, setUser, setDisplayIntro, displayIntro}) => {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    const handleForm = async (e) => {
+        e.preventDefault();
+        const url = 'http://localhost:3000/api/users';
+        const newUser = {
+        firstName: firstName,
+        lastName: lastName,
+        username: username,
+        password: password,
+        }
+        const res =  await fetch(url, {
+        method: "POST",
+        headers: {
+                'Content-Type': 'application/json'
+                 },
+        body: JSON.stringify(
+        newUser
+        )
+        });
+        const data = await res.json();
+        setFirstName('');
+        setLastName('');
+        setUsername('');
+        setPassword('');
+        localStorage.setItem("username", username);
+        setUser({firstName, lastName, username, password});
+        setDisplayIntro(!displayIntro);
+       }
 
     return (
         <>
@@ -14,7 +44,7 @@ export const Signup = ({displayLogin, setDisplayLogin}) => {
         <div style={styles.background}>
             <div style={styles.loginContainer}>
                 <div style={styles.container}>
-                    <div style={styles.container1}>
+                    <form style={styles.container1} onSubmit={handleForm}>
                         <div style={styles.loginTitleContainer}>
                             <h1 style={{ color: "grey", fontFamily: "sans-serif", paddingTop: "10%" }}>Welcome!</h1>
                             <h2 style={styles.loginTitle}>Time to join Taskmaster</h2>
@@ -22,18 +52,20 @@ export const Signup = ({displayLogin, setDisplayLogin}) => {
                         <div>
                         </div>
                         <div style={styles.inputContainer}>
+                            <input style={styles.input} type='text' placeholder='FIRST NAME' value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                            <input style={styles.input} type='text' placeholder='LAST NAME' value={lastName} onChange={(e) => setLastName(e.target.value)} />
                             <input style={styles.input} type='text' placeholder='USERNAME' value={username} onChange={(e) => setUsername(e.target.value)} />
                             <input style={styles.input} type='text' placeholder='PASSWORD' value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
                         <div style={styles.loginBtnContainer}>
-                            <button style={styles.loginButton}>LOGIN</button>
+                            <button style={styles.loginButton} type="submit">Create Account</button>
                         </div>
                         <div>
                             <h2 style={styles.accountsubtext} >Already have an Account? 
                             <button style={styles.newAccount} onClick={() => setDisplayLogin(!displayLogin)} > Login</button>
                             </h2>
                         </div>
-                    </div>
+                    </form>
                     <div style={styles.container2}>
                         <div style={styles.imageContainer}>
                         <img src={img} width="90%" height="450vh" />
