@@ -1,46 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar } from './Navbar';
 import img from "../images/loginImage.svg";
 import timeManagement from "../images/timeManagement.svg";
 
 
-export const Signup = () => {
+export const Signup = ({displayLogin, setDisplayLogin, user, setUser, setDisplayIntro, displayIntro}) => {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleForm = async (e) => {
+        e.preventDefault();
+        const url = 'http://localhost:3000/api/users';
+        const newUser = {
+        firstName: firstName,
+        lastName: lastName,
+        username: username,
+        password: password,
+        }
+        const res =  await fetch(url, {
+        method: "POST",
+        headers: {
+                'Content-Type': 'application/json'
+                 },
+        body: JSON.stringify(
+        newUser
+        )
+        });
+        const data = await res.json();
+        setFirstName('');
+        setLastName('');
+        setUsername('');
+        setPassword('');
+        localStorage.setItem("username", username);
+        setUser({firstName, lastName, username, password});
+        setDisplayIntro(!displayIntro);
+       }
+
     return (
         <>
         {/* <Navbar /> */}
         <div style={styles.background}>
             <div style={styles.loginContainer}>
-                <div style={styles.loginHeaderContainer}>
-                    <div style={styles.loginHeaderTitleContainer}>
-                    {/* <img width="64" height="64" src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-checklist-stay-at-home-flatart-icons-outline-flatarticons.png" alt="external-checklist-stay-at-home-flatart-icons-outline-flatarticons"/> */}
-                    <img src={timeManagement} width="48vw" />
-                    <h2>Taskmaster </h2>
-                    </div>
-                    <div>
-
-                    </div>
-                </div>
                 <div style={styles.container}>
-                    <div style={styles.container1}>
+                    <form style={styles.container1} onSubmit={handleForm}>
                         <div style={styles.loginTitleContainer}>
-                            <h1 style={{ color: "white", fontFamily: "sans-serif", paddingTop: "10%" }}>Welcome!</h1>
+                            <h1 style={{ color: "grey", fontFamily: "sans-serif", paddingTop: "10%" }}>Welcome!</h1>
                             <h2 style={styles.loginTitle}>Time to join Taskmaster</h2>
                         </div>
                         <div>
                         </div>
                         <div style={styles.inputContainer}>
-                            <input style={styles.input} type='text' placeholder='USERNAME' />
-                            <input style={styles.input} type='text' placeholder='PASSWORD' />
+                            <input style={styles.input} type='text' placeholder='FIRST NAME' value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                            <input style={styles.input} type='text' placeholder='LAST NAME' value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                            <input style={styles.input} type='text' placeholder='USERNAME' value={username} onChange={(e) => setUsername(e.target.value)} />
+                            <input style={styles.input} type='text' placeholder='PASSWORD' value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
                         <div style={styles.loginBtnContainer}>
-                            <button style={styles.loginButton}>LOGIN</button>
+                            <button style={styles.loginButton} type="submit">Create Account</button>
                         </div>
                         <div>
                             <h2 style={styles.accountsubtext} >Already have an Account? 
-                            <a style={styles.newAccount} href='/login'> Login</a>
+                            <button style={styles.newAccount} onClick={() => setDisplayLogin(!displayLogin)} > Login</button>
                             </h2>
                         </div>
-                    </div>
+                    </form>
                     <div style={styles.container2}>
                         <div style={styles.imageContainer}>
                         <img src={img} width="90%" height="450vh" />
@@ -60,13 +85,13 @@ export const Signup = () => {
 
 const styles = {
     background: {
-        backgroundColor: "#0D0D0D",
+        backgroundColor: "#F0FFF0",
     },
     backgroundTwo: {
-        backgroundColor: "#dde1e7",
+        backgroundColor: "#F0FFF0",
     },
     loginContainer: {
-        backgroundColor: "#0D0D0D",
+        backgroundColor: "#F0FFF0",
         margin: "auto",
         width: "90%",
         height: "80%",
@@ -85,14 +110,14 @@ const styles = {
         paddingTop: "2%"
     },
     loginTitleContainer: {
-        backgroundColor: "#0D0D0D",
+        backgroundColor: "#F0FFF0",
         width: "100%",
         textAlign: "center",
         marginTop: "3.5vh",
         paddingBottom: "15%"
     },
     loginTitle: {
-        backgroundColor: "#0D0D0D",
+        backgroundColor: "#F0FFF0",
         color: "#393e46",
         fontFamily: "sans-serif",
         paddingTop: "2%",
@@ -106,7 +131,7 @@ const styles = {
         marginTop: "1vh"
     },
     input: {
-        backgroundColor: "#f9f9f9",
+        backgroundColor: "#CCCCCC",
         color: "#8F8FA1",
         fontWeight: "bold",
         marginTop: "1vh",
@@ -115,7 +140,7 @@ const styles = {
         borderRadius: "5px",
     },
     loginBtnContainer: {
-        backgroundColor: "#0D0D0D",
+        backgroundColor: "#F0FFF0",
         margin: "auto",
         textAlign: "center",
         marginTop: "5%",
@@ -161,6 +186,7 @@ const styles = {
     newAccount: {
         color: "#39993A",
         textDecoration: "none",
+        border: "none",
     },
     accountsubtext: {
         color: "#393e46",

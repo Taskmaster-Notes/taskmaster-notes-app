@@ -9,6 +9,7 @@ import { App } from './components/App';
 import { Login } from "./components/Login";
 import { Signup } from "./components/Signup";
 import { Dashboard } from "./components/Dashboard";
+import { Intro } from "./components/Intro";
 
 const router = createBrowserRouter([
     {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/",
-        element: <Login />
+        element: <App />
     },
 ])
 ReactDOM.createRoot(document.getElementById("root")).render(
