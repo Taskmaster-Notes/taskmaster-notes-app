@@ -10,6 +10,7 @@ import { Login } from "./components/Login";
 import { Signup } from "./components/Signup";
 import { Dashboard } from "./components/Dashboard";
 import { Intro } from "./components/Intro";
+import { Notes } from "./components/Notes";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <App />
+    },
+    {
+        path: "/notes",
+        element: <Notes />
     },
 ])
 ReactDOM.createRoot(document.getElementById("root")).render(

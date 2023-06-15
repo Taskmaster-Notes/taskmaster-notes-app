@@ -1,17 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './Navbar';
 import { SingleTask } from './SingleTask';
 import { NewTask } from './newTask';
 
-export const Dashboard = ({user, setUser}) => {
+export const Dashboard = () => {
     const [show, setShow] = useState(false);
-    const {Tasks} = user;
+    const [user, setUser] = useState();
+
+    useEffect(() => {
+        const username = localStorage.getItem("username")
+        if (username) { 
+        handleLogin(username)     
+        }
+    },[])
+    const handleLogin = async (username) => {
+        const response = await fetch(`http://localhost:3000/api/users/username/${username}`);
+        const data = await response.json();
+        console.log(data);
+        setUser(data[0]);
+        setDisplayIntro(!displayIntro);
+        localStorage.setItem("id", user.id);
+    }
     console.log(user);
 
     return (
         <>
+        <Navbar />
             <div style={styles.dashboardContainer}>
-                <h1 style={{color: "grey", fontFamily: "sans-serif"}}>Hi, {user.firstName} {user.lastName}</h1>
+                <h1 style={{color: "grey", fontFamily: "sans-serif"}}>Hi, {user ? user.firstName : null} {user? user.lastName: null}</h1>
                 <div style={styles.progressBarContainer}>
                     <div style={styles.statusbarContainer}>
                         <div>
@@ -83,25 +99,25 @@ export const Dashboard = ({user, setUser}) => {
                 </div>
                 <div style={styles.tasksContainer}>
                     <div>
-                    {Tasks.map((task) => {
+                    {user ? user.Tasks.map((task) => {
                         return task.status === 'Still Have Time' ?  <SingleTask task={task} containerStyle={styles.greenTaskContainer} /> : null}
-                    )}
+                    ) : null}
                         <div style={styles.newTaskGreenContainer}>
                             <button style={styles.newGreenTask} onClick={() => setShow(!show)}>+ New</button>
                         </div>
                     </div>
                     <div>
-                    {Tasks.map((task) => {
+                    {user ? user.Tasks.map((task) => {
                         return task.status === 'In Progress' ?  <SingleTask task={task} containerStyle={styles.yellowTaskContainer} /> : null}
-                    )}
+                    ): null}
                         <div style={styles.newTaskContainer}>
                             <button style={styles.newYellowTask} onClick={() => setShow(!show)}>+ New</button>
                         </div>
                     </div>
                     <div>
-                    {Tasks.map((task) => {
+                    {user ? user.Tasks.map((task) => {
                         return task.status === 'Overdue' ?  <SingleTask task={task} containerStyle={styles.redTaskContainer} /> : null}
-                    )}
+                    ): null}
 
                         <div style={styles.newTaskContainer}>
                             <button style={styles.newRedTask} onClick={() => setShow(!show)}>+ New</button>

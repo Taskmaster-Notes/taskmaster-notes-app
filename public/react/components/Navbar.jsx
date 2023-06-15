@@ -21,14 +21,14 @@ export const Navbar = ({ user, setUser }) => {
                 </a>
                 <div style={styles.iconContainer}>
                     <div style={styles.icons}>
-                        <img style={styles.icon} width="32" height="32" src="https://img.icons8.com/ios/32/home--v1.png" alt="home--v1"/>
+                        <img style={styles.icon} width="32" height="32" src="https://img.icons8.com/ios/32/home--v1.png" alt="home--v1" onClick={() => location.href="/dashboard"}/>
                     </div>
                     <div style={styles.icons}>
-                    <img style={styles.icon} width="32" height="32" src="https://img.icons8.com/ios/32/terms-and-conditions.png" alt="terms-and-conditions"/>
+                    <img style={styles.icon} width="32" height="32" src="https://img.icons8.com/ios/32/terms-and-conditions.png" alt="terms-and-conditions" onClick={() => location.href="/notes"}/>
                     {/* <img style={styles.icon} src={pages} width="32" height="32" /> */}
                     </div>
                     <div style={styles.icons}>
-                    <img style={styles.icon} width="32" height="32" src="https://img.icons8.com/ios/32/calendar--v1.png" alt="calendar--v1"/>
+                    <img style={styles.icon} width="32" height="32" src="https://img.icons8.com/ios/32/calendar--v1.png" alt="calendar--v1" onClick={() => location.href="/"}/>
                     </div>
                     <button style={styles.icons} onClick={() => handleLogout()}>
                     <img style={styles.icon} width="32" height="32" src="https://img.icons8.com/ios/50/login-rounded-right--v1.png" alt="login-rounded-right--v1"/>

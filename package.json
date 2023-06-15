@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node server/server.js && parcel public/index.html --open",
+    "start": "concurrently \"npm run dev\" \"npm run client-dev\"",
     "dev": "nodemon server/server.js",
     "client-dev": "parcel public/index.html --open"
   },
@@ -24,6 +24,7 @@
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
     "axios": "^1.4.0",
+    "concurrently": "^8.2.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",

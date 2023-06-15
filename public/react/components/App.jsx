@@ -26,7 +26,7 @@ export const App = () => {
     return (
         <>
         <Navbar user={user} setUser={setUser} />
-        {displayIntro ? <Intro user={user} setUser={setUser} displayIntro={displayIntro} setDisplayIntro={setDisplayIntro} />: null}
+        <Intro user={user} setUser={setUser} displayIntro={displayIntro} setDisplayIntro={setDisplayIntro} />
         {!displayIntro ? <Dashboard user={user} setUser={setUser} /> : null}
         {/* <Dashboard /> */}
         </>

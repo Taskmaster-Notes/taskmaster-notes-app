@@ -36,6 +36,7 @@ export const Signup = ({displayLogin, setDisplayLogin, user, setUser, setDisplay
         localStorage.setItem("username", username);
         setUser({firstName, lastName, username, password});
         setDisplayIntro(!displayIntro);
+        location.href='/dashboard';
        }
 
     return (
@@ -95,7 +96,7 @@ const styles = {
         margin: "auto",
         width: "90%",
         height: "80%",
-        marginTop: "5%",
+        marginTop: "3%",
         paddingTop: "2vh",
         border: "solid 1px white"
         },

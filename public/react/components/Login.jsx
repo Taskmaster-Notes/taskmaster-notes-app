@@ -19,6 +19,7 @@ export const Login = ({displayLogin, setDisplayLogin, user, setUser, setDisplayI
         localStorage.setItem("username", username);
         localStorage.setItem("id", user.id);
         setDisplayIntro(!displayIntro);
+        location.href='/dashboard';
     }
 
     return (
@@ -80,7 +81,7 @@ const styles = {
         margin: "auto",
         width: "90%",
         height: "80%",
-        marginTop: "5%",
+        marginTop: "3%",
         paddingTop: "2vh",
         border: "solid 1px white"
         },
