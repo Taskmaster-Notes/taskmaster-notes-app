@@ -10,7 +10,7 @@
 * You are able to use Taskmaster Notes as a note-taking app as well. Simply start a new note and wrtie away! If you prefer, you are also able to add notes to specific tasks so you can keep track of progress. 
 
 #### I Don't Want to Use the Site
-#### To Deploy locally, clone this repo, run npm i, and run npm run start!
+#### To Deploy locally, clone this repo, pull from this REMOTE branch: final_push, run npm i, and run npm run start!
 ##### We've got you covered! Postman will be your friend in this case. take a look at our API routes below:
 #### USERS:
 ##### GET Routes:
