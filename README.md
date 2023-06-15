@@ -5,7 +5,7 @@
 * Check out the guidelines below to get started using Taskmaster Notes 
 
 #### I Want to Use the Site
-##### Great! The site has been deployed using Railway & the link is here: https://railway.app/project/cb6aa430-82cc-4c17-b7f6-dcf011a59a5b - PLEASE NOTE: This is a WIP and Deploying locally will yield best results
+##### Great! The site has been deployed using Railway & the link is here: https://taskmaster-notes-app-production.up.railway.app/api/users - PLEASE NOTE: This is a WIP and Deploying locally will yield best results
 * Take a look around, as a User you are able to create tasks with titles and descriptions of your choice, assign due dates to them, and keep track of your progress.
 * You are able to use Taskmaster Notes as a note-taking app as well. Simply start a new note and wrtie away! If you prefer, you are also able to add notes to specific tasks so you can keep track of progress. 
 
